@@ -1,7 +1,7 @@
 import java.lang.String;
 import java.util.Scanner;
 
-public class PalindromeNumber {
+public class PalindromeNumber2 {
     public boolean isPalindrome(int x) {
         if (x < 0) {
             return false;
@@ -10,18 +10,18 @@ public class PalindromeNumber {
         }
 
         String str = String.valueOf(x);
+        int left = 0;
+        int right = str.length() - 1;
 
-        return testPalindrome(str, 0, str.length() - 1);
-    }
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
 
-    public boolean testPalindrome(String palindrome, int left, int right) {
-        if (left >= right) {
-            return true;
-        }
-        if (palindrome.charAt(left) != palindrome.charAt(right)) {
-            return false;
-        }
-        return testPalindrome(palindrome, left + 1, right - 1);
+        return true;
     }
 
     static public void main(String arg[]) {

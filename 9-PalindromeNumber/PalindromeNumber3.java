@@ -1,7 +1,6 @@
-import java.lang.String;
 import java.util.Scanner;
 
-public class PalindromeNumber {
+public class PalindromeNumber3 {
     public boolean isPalindrome(int x) {
         if (x < 0) {
             return false;
@@ -9,19 +8,17 @@ public class PalindromeNumber {
             return true;
         }
 
-        String str = String.valueOf(x);
+        int temp = x;
+        int reversed = 0;
+        int dig;
 
-        return testPalindrome(str, 0, str.length() - 1);
-    }
+        while (temp != 0) {
+            dig = temp % 10;
+            reversed = reversed * 10 + dig;
+            temp /= 10;
+        }
 
-    public boolean testPalindrome(String palindrome, int left, int right) {
-        if (left >= right) {
-            return true;
-        }
-        if (palindrome.charAt(left) != palindrome.charAt(right)) {
-            return false;
-        }
-        return testPalindrome(palindrome, left + 1, right - 1);
+        return x == reversed;
     }
 
     static public void main(String arg[]) {
