@@ -1,4 +1,3 @@
-import java.lang.String;
 import java.util.Scanner;
 
 public class PalindromeNumber {
@@ -25,14 +24,16 @@ public class PalindromeNumber {
     }
 
     static public void main(String arg[]) {
+        // Declaration
         PalindromeNumber p = new PalindromeNumber();
         int num;
         Scanner in = new Scanner(System.in);
 
+        // Input
         System.out.print("Enter an integer: ");
         num = in.nextInt();
 
-        // processing and output
+        // Processing and Output
         System.out.print("\nResult: ");
 
         if (p.isPalindrome(num)) {
