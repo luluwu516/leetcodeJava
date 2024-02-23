@@ -23,7 +23,7 @@ public class PalindromeNumber3 {
 
     static public void main(String arg[]) {
         // Declaration
-        PalindromeNumber p = new PalindromeNumber();
+        PalindromeNumber3 p = new PalindromeNumber3();
         int num;
         Scanner in = new Scanner(System.in);
 

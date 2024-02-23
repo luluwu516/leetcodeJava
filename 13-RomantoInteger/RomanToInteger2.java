@@ -55,7 +55,7 @@ public class RomanToInteger2 {
 
     public static void main(String arg[]) {
         // Declaration
-        RomanToInteger r = new RomanToInteger();
+        RomanToInteger2 r = new RomanToInteger2();
         Scanner in = new Scanner(System.in);
         String roman_numeral;
 

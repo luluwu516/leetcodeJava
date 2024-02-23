@@ -25,7 +25,7 @@ public class PalindromeNumber2 {
 
     static public void main(String arg[]) {
         // Declaration
-        PalindromeNumber p = new PalindromeNumber();
+        PalindromeNumber2 p = new PalindromeNumber2();
         int num;
         Scanner in = new Scanner(System.in);
 
