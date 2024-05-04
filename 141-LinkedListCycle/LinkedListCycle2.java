@@ -59,13 +59,12 @@ public class LinkedListCycle2 {
         System.out.print("Enter the connected position or -1 to create a linked list without a cycle: ");
         pos = in.nextInt();
 
-        head = constructLinkedList(input, pos);
-
         // processing
+        head = constructLinkedList(input, pos);
         res = s.hasCycle(head);
 
         // output
         System.out.println("\n\nResult:");
-        System.out.printf("The linked list %s a cycle\n", (res ? "has" : "don't have"));
+        System.out.printf("The linked list %s a cycle\n", (res ? "has" : "doesn't have"));
     }
 }
