@@ -20,37 +20,21 @@ class ListNode {
     }
 }
 
-public class PalindromeLinkedList {
+public class PalindromeLinkedList3 {
+    ListNode curr;
+
     public boolean isPalindrome(ListNode head) {
-        List<Integer> list = new ArrayList();
-        ListNode curr = head;
-        while (curr != null) {
-            list.add(curr.val);
-            curr = curr.next;
-        }
+        curr = head;
+        return helper(head);
+    }
 
-        int left = 0;
-        int right = list.size() - 1;
-        while (left < right) {
-            if (list.get(left) != list.get(right)) {
-                return false;
-            }
-            left++;
-            right--;
+    public boolean helper(ListNode head) {
+        if (head == null) {
+            return true;
         }
-        return true;
-
-        // Stack<Integer> stack = new Stack();
-        // ListNode curr = head;
-        // while(curr != null) {
-        // stack.push(curr.val);
-        // curr = curr.next;
-        // }
-        // curr = head;
-        // while(curr != null && curr.val == stack.pop()) {
-        // curr = curr.next;
-        // }
-        // return curr == null;
+        boolean res = helper(head.next) && head.val == curr.val;
+        curr = curr.next;
+        return res;
     }
 
     public static void printLinkList(ListNode head) {
@@ -76,7 +60,7 @@ public class PalindromeLinkedList {
 
     public static void main(String[] args) {
         // declaration
-        PalindromeLinkedList s = new PalindromeLinkedList();
+        PalindromeLinkedList3 s = new PalindromeLinkedList3();
         Scanner in = new Scanner(System.in);
         ListNode head;
         Boolean res;

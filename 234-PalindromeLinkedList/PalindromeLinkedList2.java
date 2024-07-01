@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Stack;
 
 class ListNode {
     int val;
@@ -20,37 +19,37 @@ class ListNode {
     }
 }
 
-public class PalindromeLinkedList {
+public class PalindromeLinkedList2 {
     public boolean isPalindrome(ListNode head) {
-        List<Integer> list = new ArrayList();
-        ListNode curr = head;
-        while (curr != null) {
-            list.add(curr.val);
-            curr = curr.next;
+        // get the first half of the linked list
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        int left = 0;
-        int right = list.size() - 1;
-        while (left < right) {
-            if (list.get(left) != list.get(right)) {
+        // reverse the second half
+        ListNode prev = null;
+        ListNode curr = slow.next;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        // compare with the reversed second half
+        ListNode rev = prev;
+        slow.next = null;
+        while (rev != null) {
+            if (head.val != rev.val) {
                 return false;
             }
-            left++;
-            right--;
+            head = head.next;
+            rev = rev.next;
         }
         return true;
-
-        // Stack<Integer> stack = new Stack();
-        // ListNode curr = head;
-        // while(curr != null) {
-        // stack.push(curr.val);
-        // curr = curr.next;
-        // }
-        // curr = head;
-        // while(curr != null && curr.val == stack.pop()) {
-        // curr = curr.next;
-        // }
-        // return curr == null;
     }
 
     public static void printLinkList(ListNode head) {
@@ -76,7 +75,7 @@ public class PalindromeLinkedList {
 
     public static void main(String[] args) {
         // declaration
-        PalindromeLinkedList s = new PalindromeLinkedList();
+        PalindromeLinkedList2 s = new PalindromeLinkedList2();
         Scanner in = new Scanner(System.in);
         ListNode head;
         Boolean res;
