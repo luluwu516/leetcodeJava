@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class PowerOfThree {
-    public boolean isPowerOfTwo(int n) {
+    public boolean isPowerOfThree(int n) {
         if (n <= 0) {
             return false;
         }
@@ -27,7 +27,7 @@ public class PowerOfThree {
         num = in.nextInt();
 
         // processing
-        res = s.isPowerOfTwo(num);
+        res = s.isPowerOfThree(num);
 
         // output
         System.out.println("\nResult: ");
