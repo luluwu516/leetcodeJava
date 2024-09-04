@@ -1,34 +1,34 @@
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
-public class IntersectionOfTwoArrays {
+public class IntersectionOfTwoArrays3 {
     public int[] intersection(int[] nums1, int[] nums2) {
-        HashSet<Integer> resSet = new HashSet<Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> resList = new ArrayList<>();
         for (int n : nums1) {
-            if (search(n, nums2)) {
-                resSet.add(n);
+            map.put(n, 1);
+        }
+
+        for (int n : nums2) {
+            if (map.containsKey(n) && map.get(n) == 1) {
+                resList.add(n);
+                map.put(n, 0);
             }
         }
-        int[] res = new int[resSet.size()];
-        int i = 0;
-        for (int n : resSet) {
-            res[i++] = n;
+
+        int[] res = new int[resList.size()];
+        for (int i = 0; i < resList.size(); i++) {
+            res[i] = resList.get(i);
         }
         return res;
     }
 
-    static boolean search(int num, int[] nums) {
-        for (int n : nums) {
-            if (num == n) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static void main(String args[]) {
         // declaration
-        IntersectionOfTwoArrays s = new IntersectionOfTwoArrays();
+        IntersectionOfTwoArrays3 s = new IntersectionOfTwoArrays3();
         Scanner in = new Scanner(System.in);
         int[] nums1, nums2, res;
         int size;

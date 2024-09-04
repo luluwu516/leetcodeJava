@@ -1,14 +1,22 @@
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
-public class IntersectionOfTwoArrays {
+public class IntersectionOfTwoArrays2 {
     public int[] intersection(int[] nums1, int[] nums2) {
-        HashSet<Integer> resSet = new HashSet<Integer>();
+        Set<Integer> nums1Set = new HashSet<Integer>();
+        Set<Integer> resSet = new HashSet<Integer>();
+
         for (int n : nums1) {
-            if (search(n, nums2)) {
+            nums1Set.add(n);
+        }
+
+        for (int n : nums2) {
+            if (nums1Set.contains(n) && !resSet.contains(n)) {
                 resSet.add(n);
             }
         }
+
         int[] res = new int[resSet.size()];
         int i = 0;
         for (int n : resSet) {
@@ -28,7 +36,7 @@ public class IntersectionOfTwoArrays {
 
     public static void main(String args[]) {
         // declaration
-        IntersectionOfTwoArrays s = new IntersectionOfTwoArrays();
+        IntersectionOfTwoArrays2 s = new IntersectionOfTwoArrays2();
         Scanner in = new Scanner(System.in);
         int[] nums1, nums2, res;
         int size;
