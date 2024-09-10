@@ -1,10 +1,7 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class IntersectionOfTwoArraysII {
+public class IntersectionOfTwoArraysII3 {
     public int[] intersect(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
